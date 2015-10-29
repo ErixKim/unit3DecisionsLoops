@@ -14,8 +14,9 @@ public class NestedLoops
                 System.out.println(i + " " + x);
             }
         }
-        
+
     }
+
     public static void numberOutputWhile()
     {
         int x = 1;
@@ -27,7 +28,27 @@ public class NestedLoops
                 System.out.println(i + " " + x);
                 x++;
             }
+            x = 1;
             i++;
         }
+    }
+
+    public static void numberOutputDoLoop()
+    {
+        int x = 1;
+        int i = 1;
+        do
+        {
+            do
+            {
+                System.out.println(i + " " + x);
+                x++;
+            }
+            while(x <= 4);
+            x = 1;
+            i++;
+        }
+        while (i <= 2);
+
     }
 }
