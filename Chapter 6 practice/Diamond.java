@@ -5,20 +5,42 @@ public class Diamond
     {
         Scanner scan = new Scanner(System.in);
         System.out.println("What number: ");
-        int number = scan.nextInt();
-        int count = 0;
-        int i = 1;
-        while (count <= number)
+        int sideLength = scan.nextInt();
+        for (int row = 0;
+        row < sideLength;
+        row ++)
         {
-            while ( i <= number)
+            for (int spaces = 0;
+            spaces < sideLength - row - 1;
+            spaces ++)
             {
-              System.out.println("*");
-              i += 1;
+                System.out.print(" ");
             }
-            
-            System.out.println("\n");
-            count ++;
+            for (int stars = 0;
+            stars < row * 2 + 1;
+            stars ++)
+            {
+                System.out.print("*");
+            }
+            System.out.print("\n");
         }
-        
+        for (int row = sideLength - 2;
+        row >= 0;
+        row --)
+        {
+            for (int spaces = 0;
+            spaces < sideLength - row - 1;
+            spaces ++)
+            {
+                System.out.println(" ");
+            }
+            for (int stars = 0;
+            stars < row * 2 + 1;
+            stars ++)
+            {
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
     }
 }
