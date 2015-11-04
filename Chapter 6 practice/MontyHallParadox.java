@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 public class MontyHallParadox
 {
+    //Dumb code
     public static void MontyHall()
     {
         Scanner scan = new Scanner(System.in);
@@ -21,7 +22,7 @@ public class MontyHallParadox
             counter += 1;
         }
         System.out.println(counter1);
-
+        counter = 0;
         while (counter <= 1000)
         {
             int goatdoor = rn.nextInt(3) + 1;
@@ -70,9 +71,9 @@ public class MontyHallParadox
                     counter2 += 1;
                 }
             }
-            if (goatdoor == 3 && choice == 1)
+            if (goatdoor == 3 && choice == 2)
             {
-                choice = 2;
+                choice = 1;
                 if (choice == cardoor)
                 {
                     counter2 += 1;
@@ -81,5 +82,26 @@ public class MontyHallParadox
             counter += 1;
         }
         System.out.println(counter2);
+    }
+    //Smart code
+    public static void main(String[] args)
+    {
+        int change = 0;
+        int stay = 0;
+        for (int i=0; i<1000; i++)
+        {
+            Random gen = new Random();
+            int door = gen.nextInt(3);
+            int chosen = gen.nextInt(3);
+            if (door == chosen)
+            {
+                stay ++;
+            }
+            else
+            {
+                change++;
+            }
+        }
+        System.out.println(stay + " " + change);
     }
 }
