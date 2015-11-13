@@ -132,9 +132,12 @@ public class GameOfLife
                 col ++)
             {
                 Location loc = new Location(rows, col);
-                if (getActor(rows,col) != null)
+                if (loc != null)
                 {
-                    
+                    if (grid.getNeighbors(loc) < 2)
+                    {
+                        remove(getActor(rows,col));
+                    }
                 }
                 if (col == COLS)
                 {
