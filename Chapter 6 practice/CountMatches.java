@@ -15,7 +15,6 @@ public class CountMatches
             }
             }
         return spaces;
-        Fe + CoCl2 --> FeCl2 + Co
-        Fe + CoCl2 --> FeCl3 + Co
+        
         }
     }
