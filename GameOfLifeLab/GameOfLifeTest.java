@@ -94,6 +94,7 @@ public class GameOfLifeTest
 
     @Test
     public void testFinalState()
+    throws InterruptedException
     {
         /* verify that the actual pattern matches the expected pattern after 3 generations         *  
          */
@@ -117,7 +118,13 @@ public class GameOfLifeTest
         GameOfLife game = new GameOfLife();
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
+        for (int i = 0; i < 2; i++)
+        {
+            Thread.sleep(1000);
+            game.createNextGeneration();
+            
 
+        }
         for(int row = 0; row < ROWS; row++)
         {
             for(int col = 0; col < COLS; col++)

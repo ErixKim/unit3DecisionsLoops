@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * Game of Life starter code. Demonstrates how to create and populate the game using the GridWorld framework.
  * Also demonstrates how to provide accessor methods to make the class testable by unit tests.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @author @Eric Kim
+ * @version 11/17/2015
  */
 public class GameOfLife
 {
@@ -115,9 +115,7 @@ public class GameOfLife
      */
     public void createNextGeneration()
     {
-        /** You will need to read the documentation for the World, Grid, and Location classes
-         *      in order to implement the Game of Life algorithm and leverage the GridWorld framework.
-         */
+        
 
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
@@ -155,36 +153,7 @@ public class GameOfLife
                         }
                     }
                 }
-                /**
-                /Actor cell = grid.get(loc);
-                if (getActor(rows,col) != null)
-                {
-                if (grid.getOccupiedAdjacentLocations(loc).size() < 2 || grid.getOccupiedAdjacentLocations(loc).size()>3)
-                {
-                dead.add(loc);
-                }
-                }
-                else if(grid.getOccupiedAdjacentLocations(loc).size()==2 ||
-                grid.getOccupiedAdjacentLocations(loc).size()==3)
-                {
-                alive.add(loc);
-                }
-                else if(grid.getOccupiedAdjacentLocations(loc).size() > 3)
-                {
-                dead.add(loc);
-                }
-                if (loc == null)
-                {
-                if (grid.getOccupiedAdjacentLocations(loc).size() == 3)
-                {
-                alive.add(loc);
-                }
-                }
-                if (col == COLS)
-                {
-                col = 0;
-                }
-                 */
+                
             }
 
         }
@@ -198,6 +167,7 @@ public class GameOfLife
         {
             grid.remove(newloc);
         }
+        world.show();
     }
 
     /**
@@ -244,9 +214,9 @@ public class GameOfLife
     {
         GameOfLife game = new GameOfLife();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 1; i++)
         {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
             game.createNextGeneration();
             
 
