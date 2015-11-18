@@ -7,8 +7,8 @@ import info.gridworld.actor.Actor;
 /**
  * The test class GameOfLifeTest.
  *
- * @author  @gcschmit
- * @version 19 July 2014
+ * @author  @Eric Kim
+ * @version 17 November 2015
  */
 public class GameOfLifeTest
 {
@@ -45,18 +45,17 @@ public class GameOfLifeTest
         /* expected pattern for initial state
          *  (X: alive; -: dead)
          * 
-         *    0 1 2 3 4 5 6 7 8 9 10
-         *  0 - - - - - - - - - - - 
-         *  1 - X - - X - - - - - - 
-         *  2 - - - - - X - - - - -
-         *  3 - X - - - X - - - - -
-         *  4 - - X X X X - - - - -
-         *  5 - - - - - - - - - - -
-         *  6 - - - - - - - - - - -
-         *  7 - - - - - - - - - - -
-         *  8 - - - - - - - - - - -
-         *  9 - - - - - - - - - - -
-         *  10- - - - - - - - - - - 
+         *    0 1 2 3 4 5 6 7 8 9
+         *  0 - - - - - - - - - -
+         *  1 - X - - X - - - - - 
+         *  2 - - - - - X - - - -
+         *  3 - X - - - X - - - -
+         *  4 - - X X X X - - - -
+         *  5 - - - - - - - - - -
+         *  6 - - - - - - - - - -
+         *  7 - - - - - - - - - -
+         *  8 - - - - - - - - - -
+         *  9 - - - - - - - - - -
          */ 
 
         GameOfLife game = new GameOfLife();
@@ -101,25 +100,26 @@ public class GameOfLifeTest
         /* expected pattern for final state
          *  (X: alive; -: dead)
          * 
-         *    0 1 2 3 4 5 6 7 8 9 10
-         *  0 - - - - - - - - - - - 
-         *  1 - - - - - - - - - - - 
-         *  2 - - - X X X X - - - -
-         *  3 - - X - - - X - - - -
-         *  4 - - - - - - X - - - -
-         *  5 - - X - - X - - - - -
-         *  6 - - - - - - - - - - -
-         *  7 - - - - - - - - - - -
-         *  8 - - - - - - - - - - -
-         *  9 - - - - - - - - - - -
-         *  10- - - - - - - - - - - 
+         *    0 1 2 3 4 5 6 7 8 9
+         *  0 - - - - - - - - - -
+         *  1 - - - - - - - - - -
+         *  2 - - - X X X X - - -
+         *  3 - - X - - - X - - -
+         *  4 - - - - - - X - - -
+         *  5 - - X - - X - - - -
+         *  6 - - - - - - - - - -
+         *  7 - - - - - - - - - -
+         *  8 - - - - - - - - - -
+         *  9 - - - - - - - - - -
          */ 
 
         GameOfLife game = new GameOfLife();
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
-        for (int i = 0; i < 2; i++)
+        //Runs the createNextGeneration method in order to test if the final state after 8 generations matches with my predictions
+        for (int i = 0; i < 8; i++)
         {
+            //Next generation starts after 1 second
             Thread.sleep(1000);
             game.createNextGeneration();
             
@@ -133,15 +133,17 @@ public class GameOfLifeTest
                 Actor cell = game.getActor(row, col);
 
                 // if the cell at the current row and col should be alive, assert that the actor is not null
-                if(     (row == 2 && col == 3) ||
-                (row == 2 && col == 4) ||
-                (row == 2 && col == 5) ||
-                (row == 2 && col == 6) ||
-                (row == 3 && col == 6) ||
-                (row == 3 && col == 2) ||
+                if(     (row == 1 && col == 5) ||
+                (row == 3 && col == 5) ||
+                (row == 3 && col == 5) ||
                 (row == 4 && col == 6) ||
-                (row == 5 && col == 2) ||
-                (row == 5 && col == 5)
+                (row == 4 && col == 7) ||
+                (row == 4 && col == 8) ||
+                (row == 4 && col == 9) ||
+                (row == 3 && col == 9) ||
+                (row == 2 && col == 9) ||
+                (row == 1 && col == 8)
+                
                 )
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);

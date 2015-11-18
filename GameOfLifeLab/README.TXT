@@ -79,13 +79,7 @@ Submission:
 * Submit a pull request in GitHub and submit a link to the request with this assignment.
 
 
-
-
-
-
-
 Requirements:
-The grid size is going to be 20x20. Live cells are going to be blue squares while
-dead cells are going to be green squares. The pattern is going to be a house. The
-game will prompt the user to continue. The time interval between generations will
-be 0.5 seconds. There are edge cases.
+The grid size is 10x10 and it is not boundless. Live cells look like rocks and dead cells have no image representing them.
+The displayed pattern is a light weight space ship that progressively moves to the right. The game runs for exactly 8
+generations and the time interval between each generation is 1 second. There are edge cases so the live and dead cells do not wrap around the grid.
